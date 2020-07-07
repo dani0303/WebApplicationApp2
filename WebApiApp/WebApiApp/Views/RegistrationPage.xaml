@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:WebApiApp.Service" xmlns:local1="clr-namespace:WebApiApp.Models"
+             mc:Ignorable="d"
+             x:Class="WebApiApp.Views.RegistrationPage">
+
+    <ContentPage.BindingContext>
+        <local:Service/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="usernameEntry" Text="{Binding UserName}" Placeholder="Username"/>
+            <Entry x:Name="passwordEntry" Text="{Binding Password}" Placeholder="Password" IsPassword="True"/>
+            <Entry x:Name="confirmpasswordEntry" Text="{Binding ConfirmPassword}" Placeholder="Confirm Password" IsPassword="True"/>
+            <Entry x:Name="emailEntry" Text="{Binding Email}" Placeholder="Email ID">
+                <Entry.Behaviors>
+                    <local1:EmailValidationBehavior></local1:EmailValidationBehavior>
+                </Entry.Behaviors>
+            </Entry>
+            <Entry x:Name="phonenumberEntry" Text="{Binding PhoneNumber}" Placeholder="Phone No">
+                <Entry.Behaviors>
+                    <local1:PhoneNumberBehavior></local1:PhoneNumberBehavior>
+                </Entry.Behaviors>
+            </Entry>
+            <Button Text="Sign up" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
